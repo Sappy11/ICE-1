@@ -5,7 +5,7 @@
  */
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
-import java.io.Console;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -25,13 +25,15 @@ public class CardTrick {
             Card c = new Card();
             c.setValue(ThreadLocalRandom.current().nextInt(1,14));
             c.setSuit(Card.SUITS[ThreadLocalRandom.current().nextInt(0,4)]);
+            magicHand[i] = c;
         }
         
         System.out.println("Enter suit (Hearts, Diamonds, Spades, CLubs) : ");
-        String suit = System.console().readLine();
+        Scanner in = new Scanner(System.in);
+        String suit = in.nextLine();
 
         System.out.println("Enter card number (1-13) : ");
-        int card = Integer.parseInt(System.console().readLine());
+        int card = in.nextInt();
 
         for(int i=0; i<magicHand.length; i++){
             if(magicHand[i].getSuit().equals(suit) && magicHand[i].getValue() == card){
